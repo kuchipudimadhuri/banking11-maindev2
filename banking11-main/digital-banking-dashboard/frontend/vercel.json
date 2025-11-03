@@ -1,4 +1,16 @@
 {
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": "dist"
+  "builds": [
+    {
+      "src": "digital-banking-dashboard/frontend/vite.config.js",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "buildCommand": "cd digital-banking-dashboard/frontend && npm install && npm run build",
+  "outputDirectory": "digital-banking-dashboard/frontend/dist",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "digital-banking-dashboard/frontend/dist/index.html"
+    }
+  ]
 }
